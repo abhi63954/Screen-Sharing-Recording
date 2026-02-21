@@ -7,6 +7,7 @@ interface ButtonProps {
   onClick?: () => void;
   variant?: "primary" | "secondary" | "danger";
   disabled?: boolean;
+  className?:string
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -14,6 +15,7 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   variant = "primary",
   disabled = false,
+  className=""
 }) => {
   const base =
     "px-4 py-3 rounded-lg font-medium transition duration-200 text-sm cursor-pointer";
@@ -31,7 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`${base} ${styles[variant]} disabled:opacity-50`}
+      className={`${base} ${styles[variant]} disabled:opacity-50 ${className}`}
     >
       {children}
     </button>
